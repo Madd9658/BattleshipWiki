@@ -248,8 +248,17 @@ static class UtilityFunctions
 			case GameState.ViewingMainMenu:
 			case GameState.ViewingGameMenu:
 			case GameState.AlteringSettings:
+			case GameState.changebg:
 			case GameState.ViewingHighScores:
-				SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
+			//This checks MenuController's backgroundchoice value, if it's a specific value, draw from the GameResources, a different background image
+			//Default menu is assigned to the BackgroundChoice value of 0
+			if (MenuController.BackgroundChoice == 0) {
+				SwinGame.DrawBitmap (GameResources.GameImage ("Menu"), 0, 0);
+			} else if (MenuController.BackgroundChoice == 1) {
+				SwinGame.DrawBitmap (GameResources.GameImage ("Scary"), 0, 0);
+			} else if (MenuController.BackgroundChoice == 2) {
+				SwinGame.DrawBitmap (GameResources.GameImage ("Paradise"), 0, 0);
+			}
 				break;
 			case GameState.Discovering:
 			case GameState.EndingGame:

@@ -23,6 +23,9 @@ public static class GameResources
 		NewImage ("Discovery", "discover.jpg");
 		NewImage ("Deploy", "deploy.jpg");
 
+		NewImage ("Scary", "custombackground1.jpg");
+		NewImage ("Paradise", "custombackground2.jpg");
+
 		//Deployment
 		NewImage ("LeftRightButton", "deploy_dir_button_horiz.png");
 		NewImage ("UpDownButton", "deploy_dir_button_vert.png");

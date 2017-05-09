@@ -309,6 +309,9 @@ public static class GameController
 			case GameState.ViewingHighScores:
 				HighScoreController.HandleHighScoreInput();
 				break;
+			case GameState.changebg:
+				MenuController.HandleBGMenuInput ();
+				break;
 		}
 
 		UtilityFunctions.UpdateAnimations();
@@ -334,6 +337,9 @@ public static class GameController
 				break;
 			case GameState.AlteringSettings:
 				MenuController.DrawSettings();
+				break;
+			case GameState.changebg:
+				MenuController.DrawBGChange ();
 				break;
 			case GameState.Deploying:
 				DeploymentController.DrawDeployment();

@@ -25,18 +25,26 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
-			"QUIT"
+			"QUIT",
+			"Change BG"
 		},
 		new string[] {
 			"RETURN",
 			"SURRENDER",
 			"QUIT"
 		},
+
 		new string[] {
 			"EASY",
 			"MEDIUM",
 			"HARD"
+		},
+		new string[] {
+			"PIC1",
+			"PIC2",
+			"PIC3"
 		}
+
 
 	};
 	private const int MENU_TOP = 575;
@@ -47,27 +55,40 @@ static class MenuController
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 
 	private const int TEXT_OFFSET = 0;
+
 	private const int MAIN_MENU = 0;
 	private const int GAME_MENU = 1;
-
 	private const int SETUP_MENU = 2;
+	private const int BG_MENU = 3;
+
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
+	private const int MAIN_MENU_CHANGEBG_BUTTON = 4;
+
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
 
 	private const int SETUP_MENU_EXIT_BUTTON = 3;
+
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
+
+	private const int BG_PIC1_BUTTON = 0;
+	private const int BG_PIC2_BUTTON = 1;
+	private const int BG_PIC3_BUTTON = 2;
 
 	private const int GAME_MENU_QUIT_BUTTON = 2;
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
+	/// <summary>
+	/// This variable changes when you select a background choice in the menu, default values is 0
+	/// This value will be used in the Utilityfunctions's DrawBackground method to determine what background to draw
+	/// </summary>
+	public static int BackgroundChoice = 0;
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing
 	/// </summary>
@@ -86,6 +107,16 @@ static class MenuController
 
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
+		}
+	}
+
+	public static void HandleBGMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (BG_MENU, 1, 4);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
 		}
 	}
 
@@ -167,7 +198,16 @@ static class MenuController
 		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
 		DrawButtons(MAIN_MENU);
-		DrawButtons(SETUP_MENU, 1, 1);
+		DrawButtons (SETUP_MENU, 1, 1);
+	}
+
+	public static void DrawBGChange ()
+	{
+		//Clears the Screen to Black
+		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+
+		DrawButtons (MAIN_MENU);
+		DrawButtons (BG_MENU, 1, 4);
 	}
 
 	/// <summary>
@@ -250,8 +290,13 @@ static class MenuController
 			case GAME_MENU:
 				PerformGameMenuAction(button);
 				break;
+			case BG_MENU:
+				PerformBGChangeAction (button);
+				break;
 		}
 	}
+
+
 
 	/// <summary>
 	/// The main menu was clicked, perform the button's action.
@@ -272,6 +317,9 @@ static class MenuController
 			case MAIN_MENU_QUIT_BUTTON:
 				GameController.EndCurrentState();
 				break;
+			case MAIN_MENU_CHANGEBG_BUTTON:
+				GameController.AddNewState (GameState.changebg);
+				break;
 		}
 	}
 
@@ -283,10 +331,10 @@ static class MenuController
 	{
 		switch (button) {
 			case SETUP_MENU_EASY_BUTTON:
-				GameController.SetDifficulty(AIOption.Hard);
+			GameController.SetDifficulty(AIOption.Easy);
 				break;
 			case SETUP_MENU_MEDIUM_BUTTON:
-				GameController.SetDifficulty(AIOption.Hard);
+			GameController.SetDifficulty(AIOption.Medium);
 				break;
 			case SETUP_MENU_HARD_BUTTON:
 				GameController.SetDifficulty(AIOption.Hard);
@@ -294,6 +342,23 @@ static class MenuController
 		}
 		//Always end state - handles exit button as well
 		GameController.EndCurrentState();
+	}
+
+	private static void PerformBGChangeAction (int button)
+	{
+		switch (button) {
+			case BG_PIC1_BUTTON:
+			BackgroundChoice = 0;
+			break;
+			case BG_PIC2_BUTTON:
+			BackgroundChoice = 1;
+			break;
+			case BG_PIC3_BUTTON:
+			BackgroundChoice = 2;
+			break;
+		}
+		//Always end state - handles exit button as well
+		GameController.EndCurrentState ();
 	}
 
 	/// <summary>
