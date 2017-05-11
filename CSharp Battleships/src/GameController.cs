@@ -312,6 +312,12 @@ public static class GameController
 			case GameState.changebg:
 				MenuController.HandleBGMenuInput ();
 				break;
+			case GameState.ViewHowToPlay:
+				MenuController.HandleHowToPlayMenuInput ();
+			break;
+			case GameState.ViewCredits:
+				MenuController.HandleCreditsMenuInput ();
+			break;
 		}
 
 		UtilityFunctions.UpdateAnimations();

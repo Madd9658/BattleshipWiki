@@ -7,12 +7,11 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="CSharp Battleships Status">
     <Files>
-      <File FileName="GameMain.cs" Line="23" Column="26" />
+      <File FileName="GameMain.cs" Line="11" Column="3" />
       <File FileName="src\DeploymentController.cs" Line="15" Column="34" />
       <File FileName="src\HighScoreController.cs" Line="19" Column="2" />
       <File FileName="src\Model\AIPlayer.cs" Line="1" Column="1" />
       <File FileName="src\MenuController.cs" Line="1" Column="1" />
-      <File FileName="src\GameState.cs" Line="1" Column="1" />
       <File FileName="src\UtilityFunctions.cs" Line="1" Column="1" />
       <File FileName="src\GameResources.cs" Line="1" Column="1" />
       <File FileName="src\GameController.cs" Line="1" Column="1" />

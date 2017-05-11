@@ -228,3 +228,7 @@ D:\BCs\Sem 2\Development Project 1\BattleshipWiki\CSharp Battleships\obj\x86\Deb
 D:\BCs\Sem 2\Development Project 1\BattleshipWiki\CSharp Battleships\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
 D:\BCs\Sem 2\Development Project 1\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\custombackground1.jpg
 D:\BCs\Sem 2\Development Project 1\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\custombackground2.jpg
+C:\Users\Swift\Desktop\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\custombackground1.jpg
+C:\Users\Swift\Desktop\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\custombackground2.jpg
+C:\Users\Swift\Desktop\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\credits.png
+C:\Users\Swift\Desktop\BattleshipWiki\CSharp Battleships\bin\Debug\Resources\images\howtoplay.png

@@ -26,6 +26,12 @@ public static class GameResources
 		NewImage ("Scary", "custombackground1.jpg");
 		NewImage ("Paradise", "custombackground2.jpg");
 
+		//How to play images
+		NewImage ("HowToPlay", "howtoplay.png");
+
+		//Credits
+		NewImage ("Credits", "credits.png");
+
 		//Deployment
 		NewImage ("LeftRightButton", "deploy_dir_button_horiz.png");
 		NewImage ("UpDownButton", "deploy_dir_button_vert.png");

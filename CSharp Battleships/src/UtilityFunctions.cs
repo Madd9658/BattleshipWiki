@@ -261,6 +261,14 @@ static class UtilityFunctions
 			}
 				break;
 			case GameState.Discovering:
+				SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
+				break;
+			case GameState.ViewHowToPlay:
+				SwinGame.DrawBitmap (GameResources.GameImage ("HowToPlay"), 0, 0);
+				break;
+			case GameState.ViewCredits:
+				SwinGame.DrawBitmap (GameResources.GameImage ("Credits"), 0, 0);
+				break;
 			case GameState.EndingGame:
 				SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
 				break;

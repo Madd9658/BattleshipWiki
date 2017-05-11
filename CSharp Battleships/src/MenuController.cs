@@ -25,8 +25,10 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+			"Change BG",
+			"HOWTOPLAY",
+			"CREDITS",
 			"QUIT",
-			"Change BG"
 		},
 		new string[] {
 			"RETURN",
@@ -60,12 +62,16 @@ static class MenuController
 	private const int GAME_MENU = 1;
 	private const int SETUP_MENU = 2;
 	private const int BG_MENU = 3;
+	private const int HOWTOPLAY_MENU = 4;
+	private const int CREDITS_MENU = 5;
 
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
-	private const int MAIN_MENU_CHANGEBG_BUTTON = 4;
+	private const int MAIN_MENU_CHANGEBG_BUTTON = 3;
+	private const int MAIN_MENU_HOWTOPLAY_BUTTON = 4;
+	private const int MAIN_MENU_CREDITS_BUTTON = 5;
+	private const int MAIN_MENU_QUIT_BUTTON = 6;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -113,12 +119,32 @@ static class MenuController
 	public static void HandleBGMenuInput ()
 	{
 		bool handled = false;
-		handled = HandleMenuInput (BG_MENU, 1, 4);
+		handled = HandleMenuInput (BG_MENU, 1, 2);
 
 		if (!handled) {
 			HandleMenuInput (MAIN_MENU, 0, 0);
 		}
 	}
+
+	public static void HandleHowToPlayMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (HOWTOPLAY_MENU, 1, 4);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
+		}
+	}
+
+	public static void HandleCreditsMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (CREDITS_MENU, 1, 5);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
+		}
+	}
 
 	/// <summary>
 	/// Handle input in the game menu.
@@ -207,7 +233,7 @@ static class MenuController
 		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
 
 		DrawButtons (MAIN_MENU);
-		DrawButtons (BG_MENU, 1, 4);
+		DrawButtons (BG_MENU, 1, 2);
 	}
 
 	/// <summary>
@@ -320,6 +346,12 @@ static class MenuController
 			case MAIN_MENU_CHANGEBG_BUTTON:
 				GameController.AddNewState (GameState.changebg);
 				break;
+			case MAIN_MENU_HOWTOPLAY_BUTTON:
+				GameController.AddNewState (GameState.ViewHowToPlay);
+			break;
+			case MAIN_MENU_CREDITS_BUTTON:
+				GameController.AddNewState (GameState.ViewCredits);
+			break;
 		}
 	}
 
