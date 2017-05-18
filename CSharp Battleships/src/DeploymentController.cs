@@ -66,9 +66,10 @@ static class DeploymentController
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton))
 		{
-			ShipName selected = default(ShipName);
+			//ShipName selected = default(ShipName);
+			ShipName selected;
 			selected = GetShipMouseIsOver();
-			if (selected != ShipName.None)
+			if ((selected != ShipName.None))
 			{
 				_selectedShip = selected;
 			}
@@ -77,13 +78,13 @@ static class DeploymentController
 				DoDeployClick();
 			}
 
-			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+			if (GameController.HumanPlayer.ReadyToDeploy && UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
 				GameController.EndDeployment();
 			}
 			else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
-				_currentDirection = Direction.LeftRight;
+				_currentDirection = Direction.UpDown;
 			}
 			else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
@@ -107,7 +108,7 @@ static class DeploymentController
 	private static void DoDeployClick()
 	{
 		Point2D mouse = default(Point2D);
-
+		//Point2D mouse;
 		mouse = SwinGame.MousePosition();
 
 		//Calculate the row/col clicked
@@ -143,7 +144,7 @@ static class DeploymentController
 		UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
 
 		//Draw the Left/Right and Up/Down buttons
-		if (_currentDirection == Direction.LeftRight)
+		if ((_currentDirection == Direction.LeftRight ))
 		{
 			SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
 			//SwinGame.DrawText("U/D", Color.Gray, GameFont("Menu"), UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP)
@@ -165,7 +166,7 @@ static class DeploymentController
 			{
 				if (sn == _selectedShip)
 				{
-					SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
+					SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, (SHIPS_TOP + (i * SHIPS_HEIGHT)));
 					//    SwinGame.FillRectangle(Color.LightBlue, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
 					//Else
 					//    SwinGame.FillRectangle(Color.Gray, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
@@ -200,7 +201,7 @@ static class DeploymentController
 			int i = 0;
 			i = ((int) sn) - 1;
 
-			if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
+			if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, (SHIPS_TOP + (i * SHIPS_HEIGHT)), SHIPS_WIDTH, SHIPS_HEIGHT))
 			{
 				return sn;
 			}
