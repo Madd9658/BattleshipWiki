@@ -64,5 +64,11 @@ public enum GameState
 	/// <summary>
 	/// Change Background
 	/// </summary>
-	changebg
+	changebg,
+
+	/// <summary>
+	/// The change theme sound.
+	/// </summary>
+	ChangeThemeSound
+
 }

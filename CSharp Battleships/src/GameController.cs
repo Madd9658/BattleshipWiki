@@ -312,12 +312,18 @@ public static class GameController
 			case GameState.changebg:
 				MenuController.HandleBGMenuInput ();
 				break;
+<<<<<<< HEAD
 			case GameState.ViewHowToPlay:
 				MenuController.HandleHowToPlayMenuInput ();
 			break;
 			case GameState.ViewCredits:
 				MenuController.HandleCreditsMenuInput ();
 			break;
+=======
+			case GameState.ChangeThemeSound:
+			MenuController.HandleBSMenuInput ();
+			break; 
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 		}
 
 		UtilityFunctions.UpdateAnimations();
@@ -346,6 +352,9 @@ public static class GameController
 				break;
 			case GameState.changebg:
 				MenuController.DrawBGChange ();
+				break;
+			case GameState.ChangeThemeSound:
+				MenuController.DrawBSChange ();
 				break;
 			case GameState.Deploying:
 				DeploymentController.DrawDeployment();

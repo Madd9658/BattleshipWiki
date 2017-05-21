@@ -66,6 +66,9 @@ public static class GameResources
 	private static void LoadMusic ()
 	{
 		NewMusic ("Background", "horrordrone.mp3");
+		NewMusic ("B1", "mw3.mp3");
+		NewMusic ("B2", "mw4.mp3");
+
 	}
 
 	/// <summary>

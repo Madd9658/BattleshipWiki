@@ -29,6 +29,12 @@ static class MenuController
 			"HOWTOPLAY",
 			"CREDITS",
 			"QUIT",
+<<<<<<< HEAD
+=======
+			"Change BG",
+			"Change TS",
+
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 		},
 		new string[] {
 			"RETURN",
@@ -45,6 +51,16 @@ static class MenuController
 			"PIC1",
 			"PIC2",
 			"PIC3"
+		},
+
+		/// <summary>
+		/// theme sound
+		/// </summary>
+		new string []
+		{
+			"S1",
+			"S2",
+			"S3"
 		}
 
 
@@ -62,16 +78,28 @@ static class MenuController
 	private const int GAME_MENU = 1;
 	private const int SETUP_MENU = 2;
 	private const int BG_MENU = 3;
+<<<<<<< HEAD
 	private const int HOWTOPLAY_MENU = 4;
 	private const int CREDITS_MENU = 5;
+=======
+	private const int BS_MENU = 4;//theme sound
+
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+<<<<<<< HEAD
 	private const int MAIN_MENU_CHANGEBG_BUTTON = 3;
 	private const int MAIN_MENU_HOWTOPLAY_BUTTON = 4;
 	private const int MAIN_MENU_CREDITS_BUTTON = 5;
 	private const int MAIN_MENU_QUIT_BUTTON = 6;
+=======
+	private const int MAIN_MENU_QUIT_BUTTON = 3;
+	private const int MAIN_MENU_CHANGEBG_BUTTON = 4;
+	private const int MAIN_MENU_THEME_SOUND = 5; //theme sound
+
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -86,6 +114,15 @@ static class MenuController
 	private const int BG_PIC2_BUTTON = 1;
 	private const int BG_PIC3_BUTTON = 2;
 
+	/// <summary>
+	/// theme sound collection.
+	/// </summary>
+	private const int S1 = 0;
+	private const int S2 = 1;
+	private const int S3 = 2;
+
+
+
 	private const int GAME_MENU_QUIT_BUTTON = 2;
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
@@ -95,6 +132,13 @@ static class MenuController
 	/// This value will be used in the Utilityfunctions's DrawBackground method to determine what background to draw
 	/// </summary>
 	public static int BackgroundChoice = 0;
+
+	/// <summary>
+	/// The background sound.
+	/// </summary>
+	public static int BackgroundSound = 0;
+
+
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing
 	/// </summary>
@@ -126,14 +170,23 @@ static class MenuController
 		}
 	}
 
+<<<<<<< HEAD
 	public static void HandleHowToPlayMenuInput ()
 	{
 		bool handled = false;
 		handled = HandleMenuInput (HOWTOPLAY_MENU, 1, 4);
+=======
+	//theme sound 
+	public static void HandleBSMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (BS_MENU, 1, 5);
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 
 		if (!handled) {
 			HandleMenuInput (MAIN_MENU, 0, 0);
 		}
+<<<<<<< HEAD
 	}
 
 	public static void HandleCreditsMenuInput ()
@@ -145,6 +198,9 @@ static class MenuController
 			HandleMenuInput (MAIN_MENU, 0, 0);
 		}
 	}
+=======
+	}
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 
 	/// <summary>
 	/// Handle input in the game menu.
@@ -236,6 +292,17 @@ static class MenuController
 		DrawButtons (BG_MENU, 1, 2);
 	}
 
+	//theme sound 
+	public static void DrawBSChange ()
+	{
+		//Clears the Screen to Black
+		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+
+		DrawButtons (MAIN_MENU);
+		DrawButtons (BS_MENU, 1, 5);
+	}
+
+
 	/// <summary>
 	/// Draw the buttons associated with a top level menu.
 	/// </summary>
@@ -319,6 +386,11 @@ static class MenuController
 			case BG_MENU:
 				PerformBGChangeAction (button);
 				break;
+			//theme sound 
+			case BS_MENU:
+			PerformBSChangeAction (button);
+			break;
+
 		}
 	}
 
@@ -346,11 +418,16 @@ static class MenuController
 			case MAIN_MENU_CHANGEBG_BUTTON:
 				GameController.AddNewState (GameState.changebg);
 				break;
+<<<<<<< HEAD
 			case MAIN_MENU_HOWTOPLAY_BUTTON:
 				GameController.AddNewState (GameState.ViewHowToPlay);
 			break;
 			case MAIN_MENU_CREDITS_BUTTON:
 				GameController.AddNewState (GameState.ViewCredits);
+=======
+			case MAIN_MENU_THEME_SOUND:
+			GameController.AddNewState (GameState.ChangeThemeSound);
+>>>>>>> 72462ce... -minor fix deploy - new feature added : sound
 			break;
 		}
 	}
@@ -387,6 +464,27 @@ static class MenuController
 			break;
 			case BG_PIC3_BUTTON:
 			BackgroundChoice = 2;
+			break;
+		}
+		//Always end state - handles exit button as well
+		GameController.EndCurrentState ();
+	}
+
+	//theme sound
+	private static void PerformBSChangeAction (int button)
+	{
+		switch (button) {
+			//case S1:
+			//BackgroundSound = 0;
+			//SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+			//break;
+			case S2:
+			BackgroundSound = 1;
+			SwinGame.PlayMusic (GameResources.GameMusic ("B1"));
+			break;
+			case S3:
+			BackgroundSound = 2;
+			SwinGame.PlayMusic(GameResources.GameMusic ("B2"));
 			break;
 		}
 		//Always end state - handles exit button as well

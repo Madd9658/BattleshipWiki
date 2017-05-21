@@ -249,6 +249,7 @@ static class UtilityFunctions
 			case GameState.ViewingGameMenu:
 			case GameState.AlteringSettings:
 			case GameState.changebg:
+			case GameState.ChangeThemeSound:
 			case GameState.ViewingHighScores:
 			//This checks MenuController's backgroundchoice value, if it's a specific value, draw from the GameResources, a different background image
 			//Default menu is assigned to the BackgroundChoice value of 0
@@ -259,6 +260,22 @@ static class UtilityFunctions
 			} else if (MenuController.BackgroundChoice == 2) {
 				SwinGame.DrawBitmap (GameResources.GameImage ("Paradise"), 0, 0);
 			}
+				
+			//theme sound
+			//if (MenuController.BackgroundSound == 0) {
+				//SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+			//} else if (MenuController.BackgroundSound == 1) {
+				//SwinGame.PlayMusic (GameResources.GameMusic ("B1"));
+			//} else if (MenuController.BackgroundSound == 2) {
+				//SwinGame.PlayMusic (GameResources.GameMusic ("B2"));
+			//}
+
+			 if (MenuController.BackgroundSound == 1) {
+				SwinGame.PlayMusic (GameResources.GameMusic ("B1"));
+			} else if (MenuController.BackgroundSound == 2) {
+				SwinGame.PlayMusic (GameResources.GameMusic ("B2"));
+			}
+
 				break;
 			case GameState.Discovering:
 				SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
