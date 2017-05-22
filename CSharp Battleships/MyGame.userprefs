@@ -1,4 +1,4 @@
-<Properties StartupConfiguration="{871B5A90-103A-46A5-BBB9-07C02B9851D1}|Default">
+﻿<Properties StartupConfiguration="{871B5A90-103A-46A5-BBB9-07C02B9851D1}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
   <MonoDevelop.Ide.ItemProperties.MyGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -7,24 +7,13 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="CSharp Battleships Status">
     <Files>
-<<<<<<< HEAD
-      <File FileName="GameMain.cs" Line="9" Column="2" />
-      <File FileName="src\DeploymentController.cs" Line="15" Column="34" />
-      <File FileName="src\HighScoreController.cs" Line="19" Column="2" />
-      <File FileName="src\Model\AIPlayer.cs" Line="1" Column="1" />
+      <File FileName="src\DeploymentController.cs" Line="1" Column="1" />
+      <File FileName="src\GameController.cs" Line="1" Column="1" />
+      <File FileName="src\GameResources.cs" Line="1" Column="1" />
+      <File FileName="src\GameState.cs" Line="1" Column="1" />
       <File FileName="src\MenuController.cs" Line="1" Column="1" />
       <File FileName="src\UtilityFunctions.cs" Line="1" Column="1" />
-      <File FileName="src\GameResources.cs" Line="1" Column="1" />
-      <File FileName="src\GameController.cs" Line="1" Column="1" />
-=======
-      <File FileName="src\DeploymentController.cs" Line="55" Column="2" />
-      <File FileName="src\GameController.cs" Line="316" Column="36" />
-      <File FileName="src\GameResources.cs" Line="64" Column="30" />
-      <File FileName="src\GameState.cs" Line="1" Column="1" />
-      <File FileName="src\MenuController.cs" Line="465" Column="11" />
-      <File FileName="src\UtilityFunctions.cs" Line="282" Column="69" />
       <File FileName="src\Model\AIPlayer.cs" Line="18" Column="27" />
->>>>>>> 72462ce... -minor fix deploy - new feature added : sound
       <File FileName="CSharp Battleships Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
